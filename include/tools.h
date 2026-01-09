@@ -37,12 +37,12 @@ double readDouble (int client_fd);
 ssize_t readLengthPrefixedData (int client_fd);
 void readString (int client_fd);
 void readStringN (int client_fd, uint32_t max_length);
-bool readSlotData(int client_fd, uint16_t *item, uint8_t *count);
+uint8_t readSlotData(int client_fd, uint16_t *item, uint8_t *count);
 
 uint32_t fast_rand ();
 uint64_t splitmix64 (uint64_t state);
 
-bool is_tool(uint16_t item);
+uint8_t is_tool(uint16_t item);
 uint16_t get_tool_durability(int item);
 
 #ifdef ESP_PLATFORM

@@ -276,7 +276,7 @@ void readStringN (int client_fd, uint32_t max_length) {
 }
 
 // Reads a Slot Data and return if there is any item
-bool readSlotData(int client_fd, uint16_t *item, uint8_t *count) {
+uint8_t readSlotData(int client_fd, uint16_t *item, uint8_t *count) {
   if (readByte(client_fd)) {
     *item = readVarInt(client_fd);
     *count = (uint8_t)readVarInt(client_fd);
@@ -312,7 +312,7 @@ uint64_t splitmix64 (uint64_t state) {
   return z ^ (z >> 31);
 }
 
-bool is_tool(uint16_t item) {
+uint8_t is_tool(uint16_t item) {
     for (uint8_t i = 0; i < TOOL_COUNT; i++) {
         if (tools[i] == item) return 1;
     }
